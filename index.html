@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pane Defacci — Padaria e Confeitaria · Foz do Iguaçu</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', Arial, sans-serif; background:#faf3e7; color:#3a4520; line-height:1.55; }
+  .wrap { max-width:640px; margin:0 auto; }
+  header.top { background:#fffdf8; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; border-bottom:4px solid #b08030; position:sticky; top:0; z-index:10; }
+  .logo { font-weight:900; font-size:1.25rem; color:#4a5d23; letter-spacing:.3px; }
+  .logo small { display:block; font-size:.66rem; color:#b08030; letter-spacing:3px; font-weight:700; }
+  .lang { display:flex; gap:6px; align-items:center; }
+  .lang button { border:2px solid #b08030; background:#fffdf8; color:#b08030; font-weight:800; border-radius:99px; padding:6px 12px; font-size:.8rem; cursor:pointer; }
+  .lang button.on { background:#b08030; color:#fff; }
+  .ig a { color:#b08030; font-weight:800; text-decoration:none; font-size:.85rem; }
+  .hero { position:relative; text-align:center; color:#fff; padding:60px 20px 46px; background:linear-gradient(160deg,#4a5d23 0%,#5a6e28 55%,#b08030 100%); }
+  .hero .wheat { font-size:2.6rem; }
+  .hero h1 { font-size:2.1rem; line-height:1.15; margin:8px 0; }
+  .hero h1 .gold { color:#f7f2e4; }
+  .hero p { margin:10px 0 22px; font-size:1rem; font-style:italic; opacity:.95; }
+  .cta-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .btn { display:inline-block; padding:13px 26px; border-radius:12px; text-decoration:none; font-weight:800; font-size:1rem; }
+  .btn.wa { background:#25d366; color:#063; box-shadow:0 4px 0 #1a9e4b; }
+  .btn.map { background:#f7f2e4; color:#3a4520; box-shadow:0 4px 0 #a08050; }
+  .btn:active { transform:translateY(2px); box-shadow:none; }
+  section { padding:28px 20px; }
+  section h2 { text-align:center; font-size:1.5rem; margin-bottom:4px; color:#4a5d23; }
+  section .lede { text-align:center; color:#a08050; margin-bottom:18px; font-size:.95rem; }
+  .prods { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .prod { background:#fffdf8; border:2px solid #ecd9b8; border-radius:18px; padding:18px 12px; text-align:center; }
+  .prod .e { font-size:2.2rem; }
+  .prod h3 { font-size:.98rem; color:#4a5d23; margin:8px 0 4px; }
+  .prod p { font-size:.8rem; color:#a08050; }
+  .encom { background:#4a5d23; color:#fff; border-radius:24px; padding:26px 20px; text-align:center; }
+  .encom h2 { color:#f7f2e4; }
+  .encom p { margin:10px 0 18px; font-size:.95rem; color:#f5e6cd; }
+  .btn.gold { background:#f7f2e4; color:#3a4520; box-shadow:0 4px 0 #a08050; }
+  .sobre { background:#fffdf8; border-radius:24px; padding:26px 22px; border:2px solid #ecd9b8; text-align:center; }
+  .sobre .stars { color:#b08030; font-size:1.2rem; letter-spacing:2px; }
+  .sobre p { font-size:.95rem; color:#6b5a33; margin-top:10px; font-style:italic; }
+  .visit { background:#fffdf8; border-radius:24px; padding:24px 20px; border:2px solid #ecd9b8; }
+  .visit h2 { color:#4a5d23; }
+  .info { display:grid; gap:10px; margin:14px 0; }
+  .info div { background:#faf3e7; border-radius:14px; padding:12px 14px; font-size:.92rem; }
+  .info b { color:#b08030; }
+  .info a { color:#3a4520; font-weight:700; }
+  .qrrow { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+  .qr { background:#fff; border:2px solid #ecd9b8; border-radius:16px; padding:12px; text-align:center; }
+  .qr img { width:120px; height:120px; display:block; }
+  .qr span { font-size:.78rem; font-weight:700; color:#3a4520; display:block; margin-top:6px; }
+  footer { text-align:center; padding:24px 16px 34px; font-size:.78rem; color:#a08050; }
+  footer a { color:#4a5d23; text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="logo">Pane Defacci<small data-pt="PADARIA E CONFEITARIA" data-es="PANADERÍA Y CONFITERÍA" data-en="BAKERY & CONFECTIONERY">PADARIA E CONFEITARIA</small></div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div class="ig"><a href="https://www.instagram.com/panedefacci">📸 Instagram</a></div>
+    <div class="lang">
+      <button id="btn-pt" class="on" onclick="setLang('pt')">PT</button>
+      <button id="btn-es" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wheat">🌾</div>
+  <h1><span data-pt="Pão fresquinho" data-es="Pan fresquito" data-en="Fresh bread">Pão fresquinho</span><br><span class="gold" data-pt="todos os dias" data-es="todos los días" data-en="every day">todos os dias</span></h1>
+  <p data-pt="&quot;Nossa receita é simples: ingredientes frescos, lembranças de família e AMOR!&quot;" data-es="&quot;Nuestra receta es simple: ingredientes frescos, recuerdos de familia y ¡AMOR!&quot;" data-en="&quot;Our recipe is simple: fresh ingredients, family memories and LOVE!&quot;">"Nossa receita é simples: ingredientes frescos, lembranças de família e AMOR!"</p>
+  <div class="cta-row">
+    <a class="btn wa" href="https://wa.me/5545991281200?text=Ol%C3%A1%20Pane%20Defacci!">💬 WhatsApp</a>
+    <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Pane+Defacci+Padaria+e+Confeitaria+Foz+do+Igua%C3%A7u" data-pt="📍 Como chegar" data-es="📍 Cómo llegar" data-en="📍 Directions">📍 Como chegar</a>
+  </div>
+</div>
+
+<section>
+  <h2><span data-pt="🍞 Nossas delícias" data-es="🍞 Nuestras delicias" data-en="🍞 Our delights">🍞 Nossas delícias</span></h2>
+  <p class="lede" data-pt="Feito com carinho, todos os dias" data-es="Hecho con cariño, todos los días" data-en="Made with love, every day">Feito com carinho, todos os dias</p>
+  <div class="prods">
+    <div class="prod"><div class="e">🥖</div><h3 data-pt="Pães artesanais" data-es="Panes artesanales" data-en="Artisan breads">Pães artesanais</h3><p data-pt="Fresquinhos do forno" data-es="Recién salidos del horno" data-en="Fresh from the oven">Fresquinhos do forno</p></div>
+    <div class="prod"><div class="e">🎂</div><h3 data-pt="Bolos e tortas" data-es="Tortas y pasteles" data-en="Cakes and pies">Bolos e tortas</h3><p data-pt="Para o café e festas" data-es="Para el café y fiestas" data-en="For coffee and parties">Para o café e festas</p></div>
+    <div class="prod"><div class="e">🧁</div><h3 data-pt="Doces" data-es="Dulces" data-en="Sweets">Doces</h3><p data-pt="Confeitaria caseira" data-es="Confitería casera" data-en="Homemade confectionery">Confeitaria caseira</p></div>
+    <div class="prod"><div class="e">🥐</div><h3 data-pt="Salgados" data-es="Salados" data-en="Savory snacks">Salgados</h3><p data-pt="Lanche da tarde" data-es="Merienda de la tarde" data-en="Afternoon snack">Lanche da tarde</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="encom">
+    <h2 data-pt="🎉 Encomendas para festas" data-es="🎉 Pedidos para fiestas" data-en="🎉 Party orders">🎉 Encomendas para festas</h2>
+    <p data-pt="O sabor que já faz parte dos seus momentos especiais também pode estar na sua comemoração. Cardápio de encomendas para encontros, festas e datas especiais." data-es="El sabor que ya es parte de tus momentos especiales también puede estar en tu celebración. Menú de pedidos para encuentros, fiestas y fechas especiales." data-en="The flavor that's already part of your special moments can also be at your celebration. Order menu for gatherings, parties and special dates.">O sabor que já faz parte dos seus momentos especiais também pode estar na sua comemoração. Cardápio de encomendas para encontros, festas e datas especiais.</p>
+    <a class="btn gold" href="https://wa.me/5545991281200?text=Ol%C3%A1!%20Quero%20fazer%20uma%20encomenda%20para%20festa." data-pt="Pedir orçamento" data-es="Pedir presupuesto" data-en="Request a quote">Pedir orçamento</a>
+  </div>
+</section>
+
+<section>
+  <div class="sobre">
+    <div class="stars">★★★★☆</div>
+    <h2 style="margin-top:6px;" data-pt="Quem prova, volta" data-es="Quien prueba, vuelve" data-en="Once you try it, you're back">Quem prova, volta</h2>
+    <p data-pt="4.4 estrelas no Google — a padaria de bairro que virou tradição em Foz do Iguaçu." data-es="4.4 estrellas en Google — la panadería de barrio que se volvió tradición en Foz do Iguaçu." data-en="4.4 stars on Google — the neighborhood bakery that's become a tradition in Foz do Iguaçu.">4.4 estrelas no Google — a padaria de bairro que virou tradição em Foz do Iguaçu.</p>
+  </div>
+</section>
+
+<section>
+  <div class="visit">
+    <h2 data-pt="📍 Visite-nos" data-es="📍 Visítanos" data-en="📍 Visit us">📍 Visite-nos</h2>
+    <p class="lede" data-pt="Estamos te esperando" data-es="Te esperamos" data-en="We're waiting for you">Estamos te esperando</p>
+    <div class="info">
+      <div><b data-pt="Endereço:" data-es="Dirección:" data-en="Address:">Endereço:</b> R. Cap. Acácio Pedroso, 1106 – Yolanda, Foz do Iguaçu – PR</div>
+      <div><b data-pt="Horário:" data-es="Horario:" data-en="Hours:">Horário:</b> <span data-pt="Seg–Sáb 7:00–20:00 · Dom 7:00–13:00" data-es="Lun–Sáb 7:00–20:00 · Dom 7:00–13:00" data-en="Mon–Sat 7:00 AM–8:00 PM · Sun 7:00 AM–1:00 PM">Seg–Sáb 7:00–20:00 · Dom 7:00–13:00</span></div>
+      <div><b data-pt="Telefone/WhatsApp:" data-es="Teléfono/WhatsApp:" data-en="Phone/WhatsApp:">Telefone/WhatsApp:</b> <a href="tel:+5545991281200">+55 45 99128-1200</a></div>
+    </div>
+    <div class="qrrow">
+      <div class="qr"><img src="qr/qr-maps.png" alt="QR localização"><span data-pt="Como chegar" data-es="Cómo llegar" data-en="Directions">Como chegar</span></div>
+      <div class="qr"><img src="qr/qr-whatsapp.png" alt="QR WhatsApp"><span>WhatsApp</span></div>
+      <div class="qr"><img src="qr/qr-review.png" alt="QR avaliação"><span data-pt="Avalie-nos" data-es="Déjanos tu reseña" data-en="Rate us">Avalie-nos</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="tel:+5545991281200">Pane Defacci Padaria e Confeitaria · +55 45 99128-1200</a><br>
+  R. Cap. Acácio Pedroso, 1106 – Foz do Iguaçu – PR
+</footer>
+
+</div>
+<script>
+function setLang(l){
+  document.documentElement.lang = (l === 'pt') ? 'pt-BR' : l;
+  document.querySelectorAll('[data-pt]').forEach(function(el){
+    el.textContent = el.getAttribute('data-' + l);
+  });
+  ['pt','es','en'].forEach(function(x){
+    document.getElementById('btn-' + x).classList.toggle('on', x === l);
+  });
+  try { localStorage.setItem('panedefacci-lang', l); } catch(e) {}
+}
+(function(){
+  var l = 'pt';
+  try { l = localStorage.getItem('panedefacci-lang') || 'pt'; } catch(e) {}
+  if (['pt','es','en'].indexOf(l) < 0) l = 'pt';
+  setLang(l);
+})();
+</script>
+</body>
+</html>
